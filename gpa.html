@@ -38,12 +38,12 @@
                   <td>{{student.id}}</td>
                   <td>{{student.last_name}}</td>
                   <td>{{student.first_name}}</td>
-                  <td>{{student.gpa}}</td>
+                  <td>{{(student.gpa_points / student.credit_hours .toFixed(1))}}</td>
                 
               </tr>
          </table>
 
-</div>   <!-- end carsApp -->
+</div> 
 </div>   <!-- end class= 'container' -->
 
 <script>
@@ -52,7 +52,7 @@ var app = angular.module('studentsApp', []);
 		  
 app.controller('allCtrl', function($scope, $http) {
     
-   $http.get("students.json")          // get all the cars table
+   $http.get("students.json")         
      .then(function (response) {
 	    $scope.students = response.data;  
      });
